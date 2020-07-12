@@ -1,0 +1,12 @@
+.content{
+    width: 90%;
+  }
+  #contenido{
+    width: 98%;
+    padding-left: 250px;
+    padding-right: 10px;
+    margin-top: -550px;
+  }
+  .myspinner .black-overlay{ position: fixed !important; }
+  .overlay{position: fixed !important;}
+  

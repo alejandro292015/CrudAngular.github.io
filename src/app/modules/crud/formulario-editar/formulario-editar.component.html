@@ -1,0 +1,89 @@
+
+
+<div class="row">
+    <h4 class="mr-3 ml-5" style="margin-top:20px; margin-bottom:15px">Editar Empleados</h4>
+    <span style="color: #62b7e9;">
+    <i class="fa fa-info-circle fa-lg mt-4 mb-3" ngbTooltip=" pantalla del filtro de busqueda Auditoría"></i>
+    </span>
+  </div>
+  <hr>
+  <br>
+  <br>
+  <!--  -->
+<form [formGroup]="frmAgregarEmpleado" (ngSubmit)="editarEmpleados()"  class="mx-sm-4">
+
+    <div class="form-group row">
+        <label for="idd" class="col-form-label col-4">ID:</label>
+    
+          <div class="col-8">
+              <input type="text" formControlName="idd" maxlength="50" class="form-control" name="idd" id="idd" required [(ngModel)]="empleados.id"  />
+              <div *ngIf="frmAgregarEmpleado.get('idd').errors?.required" class="invalid-tooltip">
+                  Este campo es obligatorio
+                </div>
+          </div>
+      </div>
+      <br>
+    <div class="form-group row">
+      <label for="nombre" class="col-form-label col-4">Nombre:</label>
+  
+        <div class="col-8">
+            <input type="text" formControlName="nombre" maxlength="50" class="form-control" name="nombre" id="nombre" required [(ngModel)]="empleados.nombre" />
+            <div *ngIf="frmAgregarEmpleado.get('nombre').errors?.required" class="invalid-tooltip">
+                Este campo es obligatorio
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="form-group row">
+        <label for="apellido" class="col-form-label col-4">Apellido:</label>
+    
+          <div class="col-8">
+              <input type="text" formControlName="apellido" maxlength="50" class="form-control" name="apellido" id="apellido" [(ngModel)]="empleados.apellido"  required />
+    
+              <div *ngIf="frmAgregarEmpleado.get('apellido').errors?.required" class="invalid-tooltip">
+                Este campo es obligatorio
+              </div>
+          </div>
+      </div>
+    <br>
+
+      <div class="form-group row">
+        <label for="id" class="col-form-label col-4">Identificacion:</label>
+    
+          <div class="col-8">
+              <input type="text" formControlName="id" [(ngModel)]="empleados.identificacion"  maxlength="50" class="form-control" name="id" id="id"  required />
+    
+              <div *ngIf="frmAgregarEmpleado.get('id').errors?.required" class="invalid-tooltip">
+                Este campo es obligatorio
+              </div>
+          </div>
+      </div>
+    <br>
+
+      <div class="form-group row">
+        <label for="correo" class="col-form-label col-4">Correo:</label>
+    
+          <div class="col-8">
+            
+
+              <input type="text" formControlName="correo" maxlength="50" class="form-control" name="correo" id="correo" required [(ngModel)]="empleados.correo"  />
+    
+            </div>
+            <div *ngIf="frmAgregarEmpleado.get('correo').hasError('required')" class="invalid-tooltip">
+              Este campo es obligatorio
+            </div>
+            
+
+            <div *ngIf="frmAgregarEmpleado.get('correo').errors?.maxlength" class="invalid-tooltip">
+                Maximo 50 caracteres
+            </div>
+
+        </div>
+        <div class="row">
+
+            <button type="submit" class="btn btn-primary ml-2">Editar</button>
+            <button type="button" (click)="cancelar()" class="btn btn-danger ml-2">Cancelar</button>
+
+        </div>
+  <br/>
+</form>

@@ -1,0 +1,50 @@
+<div class="row">
+  <h4 class="mr-3 ml-5" style="margin-top:20px; margin-bottom:15px">Empleados</h4>
+  <span style="color: #62b7e9;">
+  <i class="fa fa-info-circle fa-lg mt-4 mb-3" ngbTooltip=" pantalla del filtro de busqueda Auditoría"></i>
+  </span>
+</div>
+<hr>
+<div class="container ml-3">
+
+<div class="row mb-sm-2" >
+  <div class="col-6" >
+      <button  ngbTooltip="Agregar Homologacion " (click)="obtenerAgregarFormulario()"  class="btn btn-primary rounded-circle"> <i class="fa fa-plus"> Agregar </i></button>
+  </div>
+
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Identificacion</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Opcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of empleados" >
+          
+          <td>
+            {{item.nombre}}
+        </td>
+        <td>
+            {{item.apellido}}
+        </td>
+        <td>
+            {{item.identificacion}}
+        </td>
+        <td>
+            {{item.correo}}
+        </td>
+        <td>
+          <button type="button"  (click)="obtenerFormularioEditar(item)" class="btn btn-success ml-2">Editar</button>
+          <button type="button" (click)="eliminarData(item.id)" class="btn btn-danger ml-2">Eliminar</button>
+      </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
